@@ -37,7 +37,69 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: Drawer(
+        backgroundColor: Colors.grey[900],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                DrawerHeader(
+                  padding: const EdgeInsets.all(25),
+                  child: Image.asset(
+                    'lib/images/Nike-Logo.png',
+                    color: Colors.white,
+                  ),
+                ),
+
+                const Divider(
+                  color: Colors.amber,
+                ),
+                const ListTile(
+                  leading: Icon(
+                    Icons.home,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'home',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                //   const SizedBox(height: 29),
+                const ListTile(
+                  leading: Icon(
+                    Icons.info,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'About',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.logout,
+                  color: Colors.red,
+                ),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         elevation: 0,
