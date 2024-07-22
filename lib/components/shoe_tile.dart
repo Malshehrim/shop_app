@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:stor_app/models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
-  ShoeTile({
+  const ShoeTile({
     super.key,
     required this.show,
+    required this.onTap,
   });
-  Shoe show;
+  final Shoe show;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +29,16 @@ class ShoeTile extends StatelessWidget {
           ),
 
           //description
-          Text(show.description),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(show.description),
+          ),
 
           //price + details
           Padding(
-            padding: const EdgeInsets.only(left: 25.0),
+            padding: const EdgeInsets.only(
+              left: 35.0,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,18 +62,21 @@ class ShoeTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12),
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        bottomRight: Radius.circular(12),
+                      ),
                     ),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.white,
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
